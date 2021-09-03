@@ -36,4 +36,5 @@ class MainActivity : AppCompatActivity() {
 //        //Aqui eu estou setando meu live data na MainActivity
 //        viewModel.setTest(binding.etMainTest.text.toString())
 //    }
+
 }
