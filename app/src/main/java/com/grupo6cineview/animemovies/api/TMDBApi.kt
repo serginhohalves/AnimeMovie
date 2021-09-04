@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface TMDBApi {
     @GET("movie/now_playing")
-    suspend fun getNowPlayingMovies(): Response<NowPlaying>
+    fun getNowPlayingMovies(): Response<NowPlaying>
 }
 

@@ -1,7 +1,5 @@
-package com.github.cesar1287.class1dhfinalproject.utils
-
-import com.github.cesar1287.class1dhfinalproject.api.ApiError
-import com.github.cesar1287.class1dhfinalproject.api.ApiService
+import com.grupo6cineview.animemovies.api.ApiError
+import com.grupo6cineview.animemovies.api.ApiService
 import okhttp3.ResponseBody
 import retrofit2.Converter
 import retrofit2.Response

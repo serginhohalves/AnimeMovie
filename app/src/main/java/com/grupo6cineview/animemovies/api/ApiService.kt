@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 object ApiService {
     val tmdbApi: TMDBApi = getTMDBApiClient().create(TMDBApi::class.java)
 
-    private fun getTMDBApiClient() : Retrofit {
+     fun getTMDBApiClient() : Retrofit {
         return Retrofit.Builder()
             //.baseUrl(BuildConfig.BASE_URL)
             .baseUrl("https://api.themoviedb.org/3/")

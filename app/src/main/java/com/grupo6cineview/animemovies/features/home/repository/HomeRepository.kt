@@ -1,4 +1,7 @@
 package com.grupo6cineview.animemovies.features.home.repository
 
-class HomeRepository {
+import com.grupo6cineview.animemovies.base.BaseRepository
+
+class HomeRepository:BaseRepository() {
+
 }
