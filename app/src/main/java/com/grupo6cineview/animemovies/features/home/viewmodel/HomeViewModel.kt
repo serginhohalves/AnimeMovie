@@ -1,7 +1,9 @@
 package com.grupo6cineview.animemovies.features.home.viewmodel
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.grupo6cineview.animemovies.features.home.usecase.HomeUseCase
+import kotlinx.coroutines.launch
 
 class HomeViewModel: ViewModel() {
 
@@ -10,10 +12,12 @@ class HomeViewModel: ViewModel() {
 
 
     //Essa funcao veio da View.
-    suspend fun getNowPlayingMovies() {
+    fun getNowPlayingMovies() {
 
-        homeUseCase.getNowPlayingMovies() //indo da viewmodel para view
+        viewModelScope.launch {
+            homeUseCase.getNowPlayingMovies() //indo da viewmodel para view
         //viewmodel nao faz chamada de api.
+        }
 
     }
 }
