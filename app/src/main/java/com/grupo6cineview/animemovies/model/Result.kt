@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class Result(
     val adult: Boolean,
     @SerializedName("backdrop_path")
-    val backdropPath: String,
+    var backdropPath: String,
     @SerializedName("genre_ids")
     val genreIds: List<Int>,
     val id: Int,
@@ -16,7 +16,7 @@ data class Result(
     val overview: String,
     val popularity: Double,
     @SerializedName("poster_path")
-    val poster_path: String,
+    var poster_path: String,
     @SerializedName("release_date")
     val releaseDate: String,
     val title: String,
