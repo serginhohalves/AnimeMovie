@@ -1,6 +1,7 @@
 package com.grupo6cineview.animemovies.features.home.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -33,8 +34,33 @@ class HomeFragment : Fragment() {
 
         //->Aqui estou setando minha vew com a viewmodel
             viewModel.getNowPlayingMovies()
+
+            viewModel.getPopularMovies()
+
+            setupObservables()
         }
     }
+
+    private fun setupObservables() {
+        activity?.let{
+            viewModel.onSuccessNowPlaying.observe(it,{
+                Log.i("teste",it.toString())
+            })
+
+            viewModel.onErrorNowPlaying.observe(it,{
+                it
+            })
+
+            viewModel.onSuccessPopular.observe(it,{
+                it
+            })
+            viewModel.onErrorPopular.observe(it,{
+
+            })
+
+        }
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         binding = null

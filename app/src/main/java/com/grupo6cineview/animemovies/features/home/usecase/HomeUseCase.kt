@@ -9,25 +9,29 @@ import com.grupo6cineview.animemovies.utils.ResponseApi
 //É aqui que eu vou fazer o tratamento dos dados.
 //Vamos tratar os dados e as informacoes de imagem.
 
-class HomeUseCase {
+class   HomeUseCase {
 
     private val homeRepository = HomeRepository()
 
-  suspend fun getNowPlayingMovies(){
-      when(val responseApi =  homeRepository.getNowPlayingMovies()){
+  suspend fun getNowPlayingMovies():ResponseApi{
+      return when(val responseApi =  homeRepository.getNowPlayingMovies()){
          is ResponseApi.Success->{
              val data = responseApi.data as? NowPlaying
-
              val result = data?.results?.map{
                  it.backdropPath = it.backdropPath.getFullImageUrl()
                  it.poster_path = it.poster_path.getFullImageUrl()
                  it
              }
-             result
+             ResponseApi.Success(result)
           }
           is ResponseApi.Error -> {
+              responseApi
 
           }
       }
+    }
+
+    suspend fun getPopularMovies():ResponseApi   {
+       return homeRepository.getPopularMovies()
     }
 }
