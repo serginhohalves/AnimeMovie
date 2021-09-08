@@ -1,28 +1,18 @@
 package com.grupo6cineview.animemovies.model
 
-import com.google.gson.annotations.SerializedName
-
 data class Result(
     val adult: Boolean,
-    @SerializedName("backdrop_path")
-    var backdropPath: String,
-    @SerializedName("genre_ids")
-    val genreIds: List<Int>,
+    var backdrop_path: String,
+    val genre_ids: List<Int>,
     val id: Int,
-    @SerializedName("original_language")
-    val originalLanguage: String,
-    @SerializedName("original_title")
-    val originalTitle: String,
+    val original_language: String,
+    val original_title: String,
     val overview: String,
     val popularity: Double,
-    @SerializedName("poster_path")
     var poster_path: String,
-    @SerializedName("release_date")
-    val releaseDate: String,
+    val release_date: String,
     val title: String,
     val video: Boolean,
-    @SerializedName("vote_average")
-    val voteAverage: Int,
-    @SerializedName("vote_count")
-    val voteCount: Int
+    val vote_average: Double,
+    val vote_count: Int
 )

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import com.grupo6cineview.animemovies.databinding.FragmentHomeBinding
 import com.grupo6cineview.animemovies.features.home.viewmodel.HomeViewModel
@@ -32,6 +33,8 @@ class HomeFragment : Fragment() {
         activity?.let {
             viewModel = ViewModelProvider(it)[HomeViewModel::class.java]
 
+            viewModel.command = MutableLiveData()
+
         //->Aqui estou setando minha vew com a viewmodel
             viewModel.getNowPlayingMovies()
 
@@ -48,11 +51,11 @@ class HomeFragment : Fragment() {
             })
 
             viewModel.onErrorNowPlaying.observe(it,{
-                it
+
             })
 
             viewModel.onSuccessPopular.observe(it,{
-                it
+
             })
             viewModel.onErrorPopular.observe(it,{
 
