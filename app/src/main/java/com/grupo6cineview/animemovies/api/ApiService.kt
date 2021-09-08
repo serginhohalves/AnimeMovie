@@ -1,6 +1,10 @@
 package com.grupo6cineview.animemovies.api
 
 import androidx.viewbinding.BuildConfig
+import com.grupo6cineview.animemovies.utils.ConstantApp.Api.API_TOKEN
+import com.grupo6cineview.animemovies.utils.ConstantApp.Api.API_TOKEN_KEY
+import com.grupo6cineview.animemovies.utils.ConstantApp.Api.QUERY_PARAM_LANGUAGE_KEY
+import com.grupo6cineview.animemovies.utils.ConstantApp.Api.QUERY_PARAM_LANGUAGE_VALUE
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -31,14 +35,14 @@ object ApiService {
             .readTimeout(10, TimeUnit.SECONDS)
             .writeTimeout(10, TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor)
-//            .addInterceptor { chain ->
-//                val url = chain.request().url.newBuilder()
-//                    .addQueryParameter(API_TOKEN_KEY, API_TOKEN)
-//                    .addQueryParameter(QUERY_PARAM_LANGUAGE_KEY, QUERY_PARAM_LANGUAGE_VALUE)
-//                    .build()
-//                val newRequest = chain.request().newBuilder().url(url).build()
-//                chain.proceed(newRequest)
-//            }
+            .addInterceptor { chain ->
+                val url = chain.request().url.newBuilder()
+                    .addQueryParameter(API_TOKEN_KEY, API_TOKEN)
+                    .addQueryParameter(QUERY_PARAM_LANGUAGE_KEY, QUERY_PARAM_LANGUAGE_VALUE)
+                    .build()
+                val newRequest = chain.request().newBuilder().url(url).build()
+                chain.proceed(newRequest)
+            }
         return interceptor.build()
     }
     }
